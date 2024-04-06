@@ -13,18 +13,9 @@ public class RetrofitClient {
 
     public static Retrofit getClient() {
         if (retrofit == null) {
-            OkHttpClient client = new OkHttpClient.Builder()
-                    .addInterceptor(chain -> {
-                        Request request = chain.request();
-                        String url = request.url().toString().replace("file:///android_asset/", "");
-                        request = request.newBuilder().url(url).build();
-                        return chain.proceed(request);
-                    })
-                    .build();
 
             retrofit = new Retrofit.Builder()
                     .baseUrl(BASE_URL)
-                    .client(client)
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
         }
