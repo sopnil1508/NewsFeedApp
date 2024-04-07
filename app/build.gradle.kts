@@ -47,4 +47,6 @@ dependencies {
     // Dagger 2 dependencies
     implementation("com.google.dagger:dagger:2.39.1")
     annotationProcessor("com.google.dagger:dagger-compiler:2.39.1")
+    testImplementation("org.mockito:mockito-core:3.12.4")
+
 }
